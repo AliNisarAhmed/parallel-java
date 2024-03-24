@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -105,18 +106,33 @@ public final class StudentAnalytics {
      */
     public String mostCommonFirstNameOfInactiveStudentsParallelStream(
             final Student[] studentArray) {
+        // return Stream.of(studentArray)
+        // .parallel()
+        // .filter(s -> !s.checkIsCurrent())
+        // // using collect is recommended with mutable objects such as Map
+        // in a parallel stream
+        // //
+        // https://stackoverflow.com/questions/56023452/how-does-reduce-method-work-with-parallel-streams-in-java-8
+        // .collect(HashMap::new, StudentAnalytics::incrementCount,
+        // StudentAnalytics::mergeMaps)
+        // .entrySet()
+        // .parallelStream()
+        // .max(Map.Entry.comparingByValue())
+        // .get()
+        // .getKey();
+
+        // alternate solution
         return Stream.of(studentArray)
                 .parallel()
                 .filter(s -> !s.checkIsCurrent())
-                // using collect is recommended with mutable objects such as Map in a parallel stream
-                // https://stackoverflow.com/questions/56023452/how-does-reduce-method-work-with-parallel-streams-in-java-8
-                .collect(HashMap::new, StudentAnalytics::incrementCount,
-                        StudentAnalytics::mergeMaps)
+                .map(s -> s.getFirstName())
+                .collect(
+                        Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .entrySet()
-                .parallelStream()
+                .stream()
                 .max(Map.Entry.comparingByValue())
-                .get()
-                .getKey();
+                .map(Map.Entry::getKey)
+                .orElse(null);
     }
 
     private static void incrementCount(HashMap<String, Integer> map, Student s) {

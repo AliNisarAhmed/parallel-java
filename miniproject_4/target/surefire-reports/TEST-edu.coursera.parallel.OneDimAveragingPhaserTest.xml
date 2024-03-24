@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.coursera.parallel.StudentAnalyticsTest" time="4.167" tests="6" errors="0" skipped="0" failures="1">
+<testsuite name="edu.coursera.parallel.OneDimAveragingPhaserTest" time="248.969" tests="1" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="17.0.9+8-LTS"/>
     <property name="sun.boot.library.path" value="/home/aa87/.sdkman/candidates/java/17.0.9-amzn/lib"/>
-    <property name="maven.multiModuleProjectDirectory" value="/home/aa87/web-dev/parallel-java/miniproject_2"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/aa87/web-dev/parallel-java/miniproject_4"/>
     <property name="java.vm.vendor" value="Amazon.com Inc."/>
     <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -13,7 +13,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/home/aa87/web-dev/parallel-java/miniproject_2"/>
+    <property name="user.dir" value="/home/aa87/web-dev/parallel-java/miniproject_4"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="17.0.9+8-LTS"/>
     <property name="os.arch" value="amd64"/>
@@ -57,16 +57,14 @@
     <property name="java.vendor.version" value="Corretto-17.0.9.8.1"/>
     <property name="sun.stdout.encoding" value="UTF-8"/>
   </properties>
-  <testcase name="testAverageAgeOfEnrolledStudents" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.372"/>
-  <testcase name="testAverageAgeOfEnrolledStudentsPerf" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.485"/>
-  <testcase name="testMostCommonFirstNameOfInactiveStudents" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.67"/>
-  <testcase name="testMostCommonFirstNameOfInactiveStudentsPerf" classname="edu.coursera.parallel.StudentAnalyticsTest" time="2.003">
-    <failure message="Expected speedup to be at least 4.0 but was 1.5705024311183144" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Expected speedup to be at least 4.0 but was 1.5705024311183144
+  <testcase name="testFuzzyBarrier" classname="edu.coursera.parallel.OneDimAveragingPhaserTest" time="248.969">
+    <failure message="Mismatch on output at element 2 expected:&lt;1.6186464395615483E-282&gt; but was:&lt;0.0&gt;" type="junit.framework.AssertionFailedError"><![CDATA[junit.framework.AssertionFailedError: Mismatch on output at element 2 expected:<1.6186464395615483E-282> but was:<0.0>
 	at junit.framework.Assert.fail(Assert.java:47)
-	at junit.framework.Assert.assertTrue(Assert.java:20)
-	at edu.coursera.parallel.StudentAnalyticsTest.testMostCommonFirstNameOfInactiveStudentsPerf(StudentAnalyticsTest.java:123)
-</failure>
+	at junit.framework.Assert.failNotEquals(Assert.java:280)
+	at junit.framework.Assert.assertEquals(Assert.java:64)
+	at edu.coursera.parallel.OneDimAveragingPhaserTest.checkResult(OneDimAveragingPhaserTest.java:92)
+	at edu.coursera.parallel.OneDimAveragingPhaserTest.parTestHelper(OneDimAveragingPhaserTest.java:122)
+	at edu.coursera.parallel.OneDimAveragingPhaserTest.testFuzzyBarrier(OneDimAveragingPhaserTest.java:139)
+]]></failure>
   </testcase>
-  <testcase name="testCountNumberOfFailedStudentsOlderThan20" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.243"/>
-  <testcase name="testCountNumberOfFailedStudentsOlderThan20Perf" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.394"/>
 </testsuite>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.coursera.parallel.StudentAnalyticsTest" time="4.167" tests="6" errors="0" skipped="0" failures="1">
+<testsuite name="edu.coursera.parallel.MatrixMultiplyTest" time="37.441" tests="2" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="17.0.9+8-LTS"/>
     <property name="sun.boot.library.path" value="/home/aa87/.sdkman/candidates/java/17.0.9-amzn/lib"/>
-    <property name="maven.multiModuleProjectDirectory" value="/home/aa87/web-dev/parallel-java/miniproject_2"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/aa87/web-dev/parallel-java/miniproject_3"/>
     <property name="java.vm.vendor" value="Amazon.com Inc."/>
     <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -13,7 +13,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/home/aa87/web-dev/parallel-java/miniproject_2"/>
+    <property name="user.dir" value="/home/aa87/web-dev/parallel-java/miniproject_3"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="17.0.9+8-LTS"/>
     <property name="os.arch" value="amd64"/>
@@ -57,16 +57,12 @@
     <property name="java.vendor.version" value="Corretto-17.0.9.8.1"/>
     <property name="sun.stdout.encoding" value="UTF-8"/>
   </properties>
-  <testcase name="testAverageAgeOfEnrolledStudents" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.372"/>
-  <testcase name="testAverageAgeOfEnrolledStudentsPerf" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.485"/>
-  <testcase name="testMostCommonFirstNameOfInactiveStudents" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.67"/>
-  <testcase name="testMostCommonFirstNameOfInactiveStudentsPerf" classname="edu.coursera.parallel.StudentAnalyticsTest" time="2.003">
-    <failure message="Expected speedup to be at least 4.0 but was 1.5705024311183144" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Expected speedup to be at least 4.0 but was 1.5705024311183144
+  <testcase name="testPar512_x_512" classname="edu.coursera.parallel.MatrixMultiplyTest" time="7.779"/>
+  <testcase name="testPar768_x_768" classname="edu.coursera.parallel.MatrixMultiplyTest" time="29.662">
+    <failure message="It was expected that the parallel implementation would run at least 4.800000x faster, but it only achieved 3.889273x speedup" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: It was expected that the parallel implementation would run at least 4.800000x faster, but it only achieved 3.889273x speedup
 	at junit.framework.Assert.fail(Assert.java:47)
 	at junit.framework.Assert.assertTrue(Assert.java:20)
-	at edu.coursera.parallel.StudentAnalyticsTest.testMostCommonFirstNameOfInactiveStudentsPerf(StudentAnalyticsTest.java:123)
+	at edu.coursera.parallel.MatrixMultiplyTest.testPar768_x_768(MatrixMultiplyTest.java:130)
 </failure>
   </testcase>
-  <testcase name="testCountNumberOfFailedStudentsOlderThan20" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.243"/>
-  <testcase name="testCountNumberOfFailedStudentsOlderThan20Perf" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.394"/>
 </testsuite>
